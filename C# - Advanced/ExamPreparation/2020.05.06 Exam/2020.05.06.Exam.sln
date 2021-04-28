@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01.Bombs", "01.Bombs\01.Bombs.csproj", "{6A71F4A1-DC7D-44C8-8D5E-BEA2CF2C9C28}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02.Snake", "02.Snake\02.Snake.csproj", "{88B7368E-BA80-4D77-8E8B-BE55C46894FE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03.Parking", "03.Parking\03.Parking.csproj", "{301A3EA4-64E3-42F5-ADC6-DA2250124226}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A71F4A1-DC7D-44C8-8D5E-BEA2CF2C9C28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A71F4A1-DC7D-44C8-8D5E-BEA2CF2C9C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A71F4A1-DC7D-44C8-8D5E-BEA2CF2C9C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A71F4A1-DC7D-44C8-8D5E-BEA2CF2C9C28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88B7368E-BA80-4D77-8E8B-BE55C46894FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88B7368E-BA80-4D77-8E8B-BE55C46894FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88B7368E-BA80-4D77-8E8B-BE55C46894FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88B7368E-BA80-4D77-8E8B-BE55C46894FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{301A3EA4-64E3-42F5-ADC6-DA2250124226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{301A3EA4-64E3-42F5-ADC6-DA2250124226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{301A3EA4-64E3-42F5-ADC6-DA2250124226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{301A3EA4-64E3-42F5-ADC6-DA2250124226}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1DFAD972-990A-4E1D-B569-5C0178EF8A47}
+	EndGlobalSection
+EndGlobal
