@@ -8,14 +8,14 @@ function createSortedList(){
             this.data.sort((a,b) => a-b);
         },
         remove: function(index){
-            if(index >0 && index < this.size){
+            if(index >= 0 && index < this.size){
             this.data.splice(index,1);
             this.size--;
             this.data.sort((a,b) => a-b);
         } 
         },
         get: function(index){
-            if(index >0 && index < this.size){
+            if(index >= 0 && index < this.size){
                 return this.data[index];
             }
         }
