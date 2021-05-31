@@ -11,7 +11,6 @@ function createSortedList(){
             if(index >= 0 && index < this.size){
             this.data.splice(index,1);
             this.size--;
-            this.data.sort((a,b) => a-b);
         } 
         },
         get: function(index){
