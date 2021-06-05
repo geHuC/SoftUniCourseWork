@@ -3,7 +3,7 @@ function solve() {
     const convertBtn = document.querySelector('button');
     const resultField = document.getElementById('result');
     //Works in SoftUni judge system
-    //selectMenu.innerHTML = '<option value="binary">Binary</option><option value="hexadecimal">Hexadecimal</option></select>';
+    //selectMenu.innerHTML = '<option value="binary">Binary</option><option value="hexadecimal">Hexadecimal</option>';
     //Doesn't work in judge but works in the browser
     selectMenu.options[0] = new Option('Binary','binary');
     selectMenu.options[1] = new Option('Hexadecimal','hexadecimal');
