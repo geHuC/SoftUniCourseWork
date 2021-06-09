@@ -3,15 +3,14 @@ function solve(){
     for (const arg of arguments) {
         let type = typeof arg;
         if(container[type] === undefined){
-            container[type] = new Array();
+            container[type] = 0;
         }
-        container[type].push(arg);
+        container[type]++;
         console.log(`${type}: ${arg}`)
     }
     let sortableContainer = [];
     for (const key in container) {
-        sortableContainer.push([key,container[key].length])
-        //container[key].forEach(x => console.log(`${key}: ${x}`));
+        sortableContainer.push([key,container[key]])
     }
     sortableContainer.sort((a,b) => b[1]-a[1]);
     sortableContainer.forEach(x => console.log(`${x[0]} = ${x[1]}`));
