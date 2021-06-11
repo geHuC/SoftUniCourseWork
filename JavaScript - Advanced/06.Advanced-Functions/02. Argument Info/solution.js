@@ -1,7 +1,7 @@
 function solve(){
     let container = {};
     for (const arg of arguments) {
-        let type = typeof arg;
+        let type = typeof(arg);
         if(container[type] === undefined){
             container[type] = 0;
         }
