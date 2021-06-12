@@ -6,6 +6,6 @@ function getArticleGenerator(articles) {
         let article = document.createElement('article');
         article.textContent = articlesArray.shift();
         contentDiv.appendChild(article);
-        }
+        } 
     };
 }
