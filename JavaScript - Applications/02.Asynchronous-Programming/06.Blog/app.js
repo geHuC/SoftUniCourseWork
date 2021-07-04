@@ -1,4 +1,4 @@
-let closureObject = {};
+let closureObject = {}; // Keeping data in closure
 function attachEvents() {
     const loadPostsBtn = document.querySelector('#btnLoadPosts');
     const viewPostsBtn = document.querySelector('#btnViewPost');
@@ -12,7 +12,9 @@ function loadPostsHandler(){
     .catch((e) => console.log(e));
 }
 function createOptions(data){
-    closureObject = data;
+    // saving the entire data in closure as we will need it later and there is no need to fetch it again
+    // In case we load posts againg it will overwrite itself with the newest data
+    closureObject = data; 
     let posts = document.querySelector('#posts');
     for (const key of Object.keys(data)) {
         let {title} = data[key];
@@ -25,7 +27,8 @@ function createOptions(data){
 function viewPostsHandler(){
     let posts = document.querySelector('#posts');
     let postId = posts.value;
-    console.log(postId);
+    //Fetching the entire comment stack everytime a post is generated 
+    // If we save it to closuse we might have pulled new posts with load posts inbetween that we don't have the comments for
     fetch('http://localhost:3030/jsonstore/blog/comments')
     .then(response => response.json())
     .then(jsonResponse => appendPostToDOM(postId,jsonResponse))
@@ -35,11 +38,11 @@ function appendPostToDOM(postId,data){
     let postTitle = document.querySelector('#post-title');
     let postBody = document.querySelector('#post-body');
     let postComments = document.querySelector('#post-comments');
-    let {body,title} = closureObject[postId];
+    let {body,title} = closureObject[postId]; //destructuring the object 
     postTitle.textContent = title;
     postBody.textContent = body;
     for (const commentId of Object.keys(data)) {
-        if(postId === data[commentId].postId){
+        if(postId === data[commentId].postId){ //finding the comments for the current post and adding them
             let listItem = document.createElement('li');
             listItem.textContent = data[commentId].text;
             listItem.id = data[commentId].id;
