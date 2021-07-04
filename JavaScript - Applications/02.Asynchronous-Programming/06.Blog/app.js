@@ -36,7 +36,8 @@ function viewPostsHandler(){
 }
 function appendPostToDOM(postId,data){
     let postTitle = document.querySelector('#post-title');
-    let postBody = document.querySelector('#post-body');
+    // in the notes it says get ul with this id, then in the picture they show a paragarpah with this id ¯\_(ツ)_/¯ in my sample html it is a ul
+    let postBody = document.querySelector('#post-body'); 
     let postComments = document.querySelector('#post-comments');
     let {body,title} = closureObject[postId]; //destructuring the object 
     postTitle.textContent = title;
