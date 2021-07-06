@@ -13,31 +13,17 @@ function getInfo() {
     newBusesUl.id = 'buses' //Would be better to fill it with list items first and then append it, but we need it cleared beforehand.
 
     fetch(`http://localhost:3030/jsonstore/bus/businfo/${stopID.value}`)
-    .then((response) => {
-            response.json()
-            .then((stopInfo) => {
-                stopNameDiv.textContent = stopInfo.name;
-                for (const busId of Object.keys(stopInfo.buses)) {
-                    createElement('li',`Bus ${busId} arrives in ${stopInfo.buses[busId]} minutes`,undefined,newBusesUl);
-                    //Would've been better if newBusesUl wasn't already added to the DOM
-                }
-            })
-            .catch(() => stopNameDiv.textContent = 'Error');
+    .then(response => response.json())
+    .then(stopInfo => {
+        stopNameDiv.textContent = stopInfo.name;
+        for (const busId of Object.keys(stopInfo.buses)) {
+            let listItem = document.createElement('li');
+            listItem.textContent = `Bus ${busId} arrives in ${stopInfo.buses[busId]} minutes`;
+            newBusesUl.appendChild(listItem);
+            //Would've been better if newBusesUl wasn't already added to the DOM
+        }
     })
+    .catch((err) => stopNameDiv.textContent = 'Error');
     
     stopID.value = '';
-    //Function that simplifies the creation of elements
-    function createElement(type,text,classType,appender){
-        let element = document.createElement(type);
-        if(text != undefined && text !=''){
-            element.textContent = text;
-        }
-        if(classType != undefined && classType != ''){
-            element.className = classType; // simplifies creation of multiple classes initially
-        }
-        if(appender != undefined && appender != ''){
-            appender.appendChild(element);
-        }
-        return element;
-    }
 }

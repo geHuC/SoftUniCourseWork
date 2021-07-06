@@ -14,7 +14,7 @@ function attachEvents() {
         //Made it too complicated for no good reason other than wanting it to be able to have an error and still be able to make requests without reloading the page
         //Probably too damn expensive but ¯\_(ツ)_/¯
         if(mainForecastDiv.style.display == 'block'){ //No need to recreate them on first launch
-            currentForecastDiv.textContent =''; // Apparantly deletes everything including other elements
+            currentForecastDiv.textContent =''; // Apparantly deletes everything including other elements works on chrome and firefox in w10
             upcomingForecastDiv.textContent='';
             currentForecastDiv.appendChild(currentConditionsLabel); //Re-appending the labels as the previous command deleted everything
             upcomingForecastDiv.appendChild(upcomingConditionsLabel);
@@ -32,9 +32,9 @@ function attachEvents() {
         //Showing Error in both sections if the server is down
         .catch(() => displayError(currentForecastDiv,upcomingForecastDiv)); 
 
-        //Displaying the forecast window immediatly for better UX by notifing the uses that something is happening
+        //Displaying the forecast window immediatly for better UX by notifing the user that something is happening
         mainForecastDiv.style.display = 'block'; 
-        locationInput.value = ''; //clearing the imput filed
+        locationInput.value = ''; //clearing the input filed
 
     }
 
