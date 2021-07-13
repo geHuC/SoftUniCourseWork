@@ -19,9 +19,10 @@ function attachEvents() {
               },
               body: JSON.stringify({author,content}) // Shorthand Object notation
         })
-        .then(() => {
+        .then((response) => response.json())
+        .then((data) => {
             contentInputArea.value = ''; //Clear the content input area but keep the name area filled on purpose (don't need to retype your name to send new message)
-            appendTextMessageToTextArea(author,content);
+            appendTextMessageToTextArea(data.author,data.content);
         })
         .catch(err => console.log(err));
     }

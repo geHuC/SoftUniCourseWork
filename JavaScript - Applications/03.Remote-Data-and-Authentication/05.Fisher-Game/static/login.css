@@ -47,3 +47,15 @@ input[type="submit"]:hover {
 button {
   width: 50%;
 }
+
+.error-message {
+  color: #cc0033;
+  font-size: 12px;
+  line-height: 15px;
+  position: absolute;
+  left: 125px;
+  top: 40px;
+}
+.error{
+  border-color: red;
+}
