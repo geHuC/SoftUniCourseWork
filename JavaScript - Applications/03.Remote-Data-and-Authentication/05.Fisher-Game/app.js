@@ -28,7 +28,7 @@ function ifLoggedIn(){
     addButton.disabled = false;
 }
 
-//Event delegation for the catches
+//Event delegation for the catches buttons
 function catchButtonHandler(e){
     if(e.target.type !== 'submit'){ // if what we clicked is not button ignore
         return;

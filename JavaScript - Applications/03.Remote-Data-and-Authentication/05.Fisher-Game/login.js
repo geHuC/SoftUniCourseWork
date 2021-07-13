@@ -11,14 +11,17 @@ function registrationFormHandler(e){
     let userEmail = formData.get('email');
     let userPassword = formData.get('password');
     let userRepeatPassword = formData.get('rePass');
-    clearErrorStyling(e);
+    //Clearing any erros styling that has been applied
+    clearErrorStyling(e); 
+
+    // Simple data validation
     let validated = true;
-    if(!/.+@+.+\.+.+/.test(userEmail)){
+    if(!/.+@+.+\.+.+/.test(userEmail)){ // check to see if what is entered is an email (looks for @ and . sandwitched between any text)
         let emailElement = e.target.querySelector('input[name="email"');
         createErrorMessage('Please enter a valid email adress',emailElement);
         validated = false;
     }
-    if(userPassword.trim() === ''){    
+    if(userPassword.trim() === ''){ 
         let passwordElement = e.target.querySelector('input[name="password"');
         createErrorMessage('Password cannot be empty',passwordElement);
         validated = false;
@@ -29,14 +32,14 @@ function registrationFormHandler(e){
         validated = false;
     }
     if(!validated){
-        return;
+        return; // if any of the validations fail stop there
     }
 
     let registrationDetails = {
         email: userEmail,
         password: userPassword
     };
-    e.target.reset();
+    e.target.reset(); // clearing the input form
     registerUser(registrationDetails);
 }
 async function registerUser(userDetails){
@@ -60,17 +63,19 @@ async function registerUser(userDetails){
         let jsonResponse = await response.json();
         localStorage.setItem('token', jsonResponse.accessToken);
         localStorage.setItem('userId', jsonResponse._id);
-        location.assign('./index.html');
+        location.assign('./index.html'); // Probably needs to be refactored out of here
     } catch (error) {
         createErrorMessage(error.message,emailElement);
         emailElement.classList.add('error');
         return;
     }
 }
+//Clean up function removing any error styling
 function clearErrorStyling(e){
     e.target.querySelectorAll('.error-message').forEach(x => x.remove());
     e.target.querySelectorAll('.error').forEach(x => x.classList.remove('error'));
 }
+// Helper function that attaches error messages to the invalid input and adds a class to color the borders
 function createErrorMessage(message,element){
     let small = document.createElement('small');
     small.textContent = message;
@@ -78,7 +83,7 @@ function createErrorMessage(message,element){
     element.classList.add('error');
     element.parentElement.appendChild(small);
 }
-function loginFormHandler(e){
+function loginFormHandler(e){ // Pretty much the same like registre except no need for second password
     e.preventDefault();
     const formData = new FormData(e.target);
     let userEmail = formData.get('email');
