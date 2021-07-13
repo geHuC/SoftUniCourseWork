@@ -139,3 +139,15 @@ hr {
     padding-right: 15px;
     padding-left: 15px;
 }
+.error-message {
+    color: #cc0033;
+    font-size: 12px;
+    line-height: 15px;
+    position:relative;
+    margin: 0;
+    padding: 0;
+    top: -10px;
+  }
+  .error{
+    border-color: red;
+  }
