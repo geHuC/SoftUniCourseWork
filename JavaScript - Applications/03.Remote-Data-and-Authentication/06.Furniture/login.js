@@ -1,5 +1,6 @@
-let registerForm = document.querySelector('#register-form');
-let loginForm = document.querySelector('#login-form');
+//This is a copy paset of the code from the 5th exercise just changed the targets
+const registerForm = document.querySelector('#register-form');
+const loginForm = document.querySelector('#login-form');
 
 registerForm.addEventListener('submit', registrationFormHandler);
 loginForm.addEventListener('submit', loginFormHandler);
@@ -62,9 +63,8 @@ async function registerUser(userDetails){
         }
         let jsonResponse = await response.json();
         localStorage.setItem('token', jsonResponse.accessToken);
-        localStorage.setItem('userEmail', jsonResponse.email);      
         localStorage.setItem('userId', jsonResponse._id);
-        location.assign('./index.html'); // Probably needs to be refactored out of here
+        location.assign('./homeLogged.html'); // Probably needs to be refactored out of here
     } catch (error) {
         createErrorMessage(error.message,emailElement);
         emailElement.classList.add('error');
@@ -126,10 +126,9 @@ async function loginUser(userDetails){
             throw new Error('Wrong email/password')
         }
         let jsonResponse = await response.json();
-        localStorage.setItem('token', jsonResponse.accessToken);
-        localStorage.setItem('userEmail', jsonResponse.email);      
+        localStorage.setItem('token', jsonResponse.accessToken);      
         localStorage.setItem('userId', jsonResponse._id);
-        location.assign('./index.html');
+        location.assign('./homeLogged.html');
     } catch (e) {
         createErrorMessage(e.message,emailElement);
         emailElement.classList.add('error');

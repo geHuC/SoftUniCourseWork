@@ -1363,6 +1363,24 @@
     		}
     	},
     	furniture: {
+		"4425bdcb-12c8-4db5-8596-90dfbbfec998" :{	
+				name: "Office chair",
+				price: 160,
+				factor: 0.5,
+				img: "https://www.lidl-shop.nl/media/fcf868f9526b38d0b0a43cc2ace72b80.jpeg",
+				_createdOn: 1626265028204,
+				_id: "4425bdcb-12c8-4db5-8596-90dfbbfec998",
+				_ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
+			},
+		"f66735a3-e289-4cce-8377-0f95a781dfea" :{	
+				name: "Sofa",
+				price: 259,
+				factor: 1.2,
+				img: "https://res.cloudinary.com/maisonsdumonde/image/upload/q_auto,f_auto/w_200/img/grey-3-seater-sofa-bed-200-13-0-175521_9.jpg",
+				_createdOn: 1626265543403,
+				_id: "4425bdcb-12c8-4db5-8596-90dfbbfec998",
+				_ownerId: "f66735a3-e289-4cce-8377-0f95a781dfea"
+			},
     	},
     	orders: {
     	},

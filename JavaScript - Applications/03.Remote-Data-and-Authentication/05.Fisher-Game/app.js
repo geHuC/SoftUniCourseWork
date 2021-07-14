@@ -4,6 +4,7 @@
 const catchesDiv = document.querySelector('#catches');
 const loadButton = document.querySelector('main aside .load');
 const addButton = document.querySelector("#addForm .add");
+const welcomeSpan = document.querySelector('#welcome');
 
 //Attach Event Listeners
 loadButton.addEventListener('click', loadFishes);
@@ -15,17 +16,34 @@ clearCatches();
 ifLoggedIn();
 
 function ifLoggedIn(){
-    // probably should also check for expired sessions as if we restart the server this would still say we are logged in but our token will be obsolete
-    if(!localStorage.getItem('token')){ 
+    if(!localStorage.getItem('token')){ // if no auth token exist return imidietly
         return;
     }
-    //If logged in change login to log out and enable the add button
-    const navigationDiv = document.querySelector('#guest');
-    let a = navigationDiv.querySelector('a');
-    a.textContent = 'Log out!';
-    a.href = '#';
-    a.addEventListener('click', logOutHandler);
-    addButton.disabled = false;
+    fetch('http://localhost:3030/users/me',{ //try to get your data with the token if it is denied then the token is expired
+        method: 'GET',
+        headers: {
+            'Content-Type' : 'application/json',
+            'X-Authorization': localStorage.getItem('token')
+        },
+    })  
+    .then(response => {
+        if(!response.ok){ // Token expired go to home and delete token
+            localStorage.clear(); // clear any storage for the site
+            return;
+        }
+        //If token is valid change login to log out and enable the add button
+        const navigationDiv = document.querySelector('#guest');
+        let a = navigationDiv.querySelector('a');
+        a.textContent = 'Log out!';
+        a.href = '#';
+        a.addEventListener('click', logOutHandler);
+        addButton.disabled = false;
+        welcomeSpan.textContent = "";
+        let welcomeTxt = document.createTextNode('Welcome back ');
+        welcomeSpan.appendChild(welcomeTxt);
+        createElement('strong',localStorage.getItem('userEmail'),'highlited',welcomeSpan);
+    })
+    .catch(e => console.error(e)); 
 }
 
 //Event delegation for the catches buttons

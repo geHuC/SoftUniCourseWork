@@ -30,8 +30,8 @@ function submitButtonHandler(e){
         body: JSON.stringify(student)
     })
     .then(() => {
-        getStudentsDataFromServer();
-        formData.reset();
+        getStudentsDataFromServer(); // bad idea to recreate the table everytime
+        e.target.parentElement.reset(); //reset the form
     })
     .catch(err => console.log(err));
 }

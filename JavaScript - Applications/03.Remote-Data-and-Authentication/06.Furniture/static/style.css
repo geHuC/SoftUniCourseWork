@@ -207,3 +207,14 @@ input[type="submit"]:hover {
 span{
   font-weight: bold;
 }
+.error-message {
+  color: #cc0033;
+  font-size: 12px;
+  line-height: 15px;
+  position: absolute;
+  left: 105px;
+  top: 40px;
+}
+.error{
+  border-color: red;
+}
