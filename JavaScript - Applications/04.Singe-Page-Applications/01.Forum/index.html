@@ -25,7 +25,7 @@
         <nav>
             <ul>
                 <li>
-                    <a href="#">Home</a>
+                    <a class="homeBtn" href="#">Home</a>
                 </li>
             </ul>
         </nav>
@@ -33,12 +33,12 @@
 
     <!-- homepage -->
     <div class="container">
-        <main>
+        <main class ="home-view">
             <div class="new-topic-border">
                 <div class="header-background">
                     <span>New Topic</span>
                 </div>
-                <form>
+                <form id="create-post">
                     <div class="new-topic-title">
                         <label for="topicName">Title <span class="red">*</span></label>
                         <input type="text" name="topicName" id="topicName">
@@ -58,15 +58,10 @@
 
                 </form>
             </div>
-
-            <div class="topic-title">
-
                 <!-- topic component  -->
                 <div class="topic-container">
                     
                 </div>
-                
-
         </main>
 
     </div>
@@ -76,6 +71,7 @@
         <p>You can find the real SoftUni forum at this link:</p>
         <p><span><a href="https://softuni.bg/forum">https://softuni.bg/forum</a></span></p>
     </footer>
+    <script  src="app.js"  type="module"></script>
 </body>
 
 </html>
