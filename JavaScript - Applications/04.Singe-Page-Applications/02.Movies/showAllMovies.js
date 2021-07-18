@@ -1,6 +1,6 @@
 import fetcher from "./fetcher.js";
 
-async function showMovies(){
+async function showAllMovies(){
     let movies = await fetcher.getAllMovies();
     let template = document.querySelector('.single-movie-card');
     let fragment = new DocumentFragment();
@@ -16,4 +16,4 @@ async function showMovies(){
     template.parentElement.appendChild(fragment);
 }
 
-export default showMovies;
+export default showAllMovies;
