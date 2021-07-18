@@ -19,6 +19,12 @@ function changeView(view, movieId){
         case 'single':
             document.querySelector('#movie-example').classList.remove('hidden');
             break;
+        case 'addMovie':
+            document.querySelector('#add-movie').classList.remove('hidden');
+            break;
+        case 'edit':
+            document.querySelector('#edit-movie').classList.remove('hidden');
+            break;
     }
 }
 export default changeView;
