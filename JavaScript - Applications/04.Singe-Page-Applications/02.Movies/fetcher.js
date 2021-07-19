@@ -41,11 +41,29 @@ async function deleteMovie(id){
         },
     })
 }
+async function getSingleUserLikes(movieId){
+    let userId = localStorage.getItem('userId');
+    let res = await fetch(`${baseUrl}/data/likes?where=movieId%3D%22${movieId}%22%20and%20_ownerId%3D%22${userId}%22`);
+    return await res.json();
+}
+async function likeMovie(obj){
+    let res = await fetch(`${baseUrl}/data/likes/`,{
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json',
+            'X-Authorization': localStorage.getItem('token')
+        },
+        body: JSON.stringify(obj)
+    });
+}
 export default {
     getAllMovies,
     getSingleMovies,
     postMovie,
     deleteMovie,
     updateMovie,
-    getLikesCount
+    getLikesCount,
+    getSingleMovies,
+    likeMovie,
+    getSingleUserLikes
 }
