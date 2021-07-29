@@ -4,6 +4,8 @@ import htmlRouter from "./src/routing/htmlRouter.js";
 import navigationView from "./src/navigation/navigationView.js";
 import authService from "./src/services/authService.js";
 import homeView from "./src/views/home/homeView.js";
+import loginView from "./src/views/login/loginView.js";
+import registerView from "./src/views/register/registerView.js";
 
 //Get Dom Elements
 const rootElement = document.querySelector('#root');
@@ -19,6 +21,9 @@ const navigationRenderHandler =  htmlRenderer.createRenderHandler(navigationElem
 //initialize all pages - Would be so much nicer if JS had reflection support
 navigationView.init( page, navigationRenderHandler, authentication);
 homeView.init( page, viewRenderHandler, authentication);
+loginView.init( page, viewRenderHandler, authentication);
+registerView.init( page, viewRenderHandler, authentication);
+//loginView.init( page, viewRenderHandler, authentication);
 
 
 //initialize the router the router

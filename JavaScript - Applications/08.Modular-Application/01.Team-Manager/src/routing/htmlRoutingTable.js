@@ -1,5 +1,7 @@
 import navigationView from "../navigation/navigationView.js";
 import homeView from "../views/home/homeView.js";
+import loginView from "../views/login/loginView.js";
+import registerView from "../views/register/registerView.js";
 
 function attachTable(page){
     //initial redirects
@@ -11,8 +13,8 @@ function attachTable(page){
     // //page view redirects
 
     page('/home',homeView.getView);
-    // page('/login', loginView.getView);
-    // page('/register', registerView.getView);
+    page('/login', loginView.getView);
+    page('/register', registerView.getView);
     // page('/logout', logoutView.getView);
     // page('/create', createView.getView);
     // page('/my', myFurnitureView.getView);

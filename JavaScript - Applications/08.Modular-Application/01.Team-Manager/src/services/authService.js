@@ -32,14 +32,14 @@ async function register(userDetails){
         if(response.status === 409){
             throw new Error(`${userDetails.email} is already registered.`);
         }
-
         throw new Error('Something went wrong, please try again later');
     }
     let user = await response.json();
     localStorage.setItem('user',JSON.stringify({
         id: user._id,
         email: user.email,
-        accessToken: user.accessToken
+        accessToken: user.accessToken,
+        username: user.username
     }));
 }
 async function logout(token){
