@@ -6,6 +6,8 @@ import authService from "./src/services/authService.js";
 import homeView from "./src/views/home/homeView.js";
 import loginView from "./src/views/login/loginView.js";
 import registerView from "./src/views/register/registerView.js";
+import teamsView from "./src/views/teams/teamsView.js";
+import createView from "./src/views/create/createView.js";
 
 //Get Dom Elements
 const rootElement = document.querySelector('#root');
@@ -23,6 +25,8 @@ navigationView.init( page, navigationRenderHandler, authentication);
 homeView.init( page, viewRenderHandler, authentication);
 loginView.init( page, viewRenderHandler, authentication);
 registerView.init( page, viewRenderHandler, authentication);
+teamsView.init( page, viewRenderHandler, authentication);
+createView.init( page, viewRenderHandler, authentication);
 //loginView.init( page, viewRenderHandler, authentication);
 
 

@@ -1,6 +1,7 @@
 import authService from "./authService.js";
 
-const baseUrl = 'http://localhost:3030/data/catalog';
+const baseUrl = 'http://localhost:3030/data/teams';
+const membmerUrl = 'http://localhost:3030/data/members';
 //all erros handled elsewhere
 async function getAll(){
     let res = await fetch(`${baseUrl}`);
@@ -8,6 +9,11 @@ async function getAll(){
 }
 async function getSinle(id){
     let res = await fetch(`${baseUrl}/${id}`);
+    return await res.json();
+}
+async function getMembers(teamIds){
+    let strToEncode = ` IN (${teamIds.join(',')}) AND status="member"` 
+    let res = await fetch(`${membmerUrl}?where=teamId${encodeURIComponent(strToEncode)}`);
     return await res.json();
 }
 async function create(obj){
@@ -20,6 +26,7 @@ async function create(obj){
         },
         body: JSON.stringify(obj)
     });
+    return await res.json();
 }
 async function update(id,obj){
     let {accessToken} = authService.getUser();
@@ -52,5 +59,6 @@ export default {
     create,
     update,
     del,
-    getByOwner
+    getByOwner,
+    getMembers
 }

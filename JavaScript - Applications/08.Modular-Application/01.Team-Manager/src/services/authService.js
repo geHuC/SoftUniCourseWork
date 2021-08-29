@@ -19,7 +19,8 @@ async function login(userDetails){
     localStorage.setItem('user',JSON.stringify({
         id: user._id,
         email: user.email,
-        accessToken: user.accessToken
+        accessToken: user.accessToken,
+        username: user.username
     }));
 }
 async function register(userDetails){
@@ -42,12 +43,12 @@ async function register(userDetails){
         username: user.username
     }));
 }
-async function logout(token){
+async function logout(){
     let response = await fetch(`${baseUrl}/logout`, {
         method: 'GET',
         headers: {
             'Content-Type' : 'application/json',
-            'X-Authorization': token
+            'X-Authorization': getUser().accessToken
         }
     });
     localStorage.clear();

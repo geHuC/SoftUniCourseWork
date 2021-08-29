@@ -12,7 +12,10 @@ function init(router, renderer, authService){ //Dependency injection
 }
 
 async function getView(){
-    _renderer(homeTemplate());
+    let viewModel = {
+        isLogged : _authenticator.isLogged()
+    }
+    _renderer(homeTemplate(viewModel));
 }
 
 export default{

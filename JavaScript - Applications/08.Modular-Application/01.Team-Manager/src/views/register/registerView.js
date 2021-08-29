@@ -14,6 +14,7 @@ function init(router, renderer, authService){ //Dependency injection
 async function getView(){
     if(_authenticator.isLogged()){ // if user is already loogged don't show that page
        await _router('/teams');
+       return;
     }
     let viewModel = {};
     viewModel.submitHandler = registerFormHandler;
@@ -22,7 +23,6 @@ async function getView(){
 async function registerFormHandler(e){
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(e.target));
-    console.log(formData);
     let errorMessages = [];
     if(!validator.isEmail(formData.email)) errorMessages.push('Enter a valid email adress.');
     if(!validator.isLongerOr(formData.username, 3)) errorMessages.push('Username must be atleaset 3 characters long.');
